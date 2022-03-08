@@ -1,0 +1,63 @@
+<div>
+
+    <div class="container-scroller">
+
+                <div class="container-fluid page-body-wrapper">
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Liste des Articles</h3>
+                                    <label>Vous avez chercher une categorie ?</label>
+                                    <input type="text" [(ngModel)]="newCat.nomCat" name="nomCat" class="form-control" (input)="chercherCat()" >
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        ID
+                                                    </th>
+                                                    <th>
+                                                        Nom categorie
+                                                    </th>
+                                                    <th>
+                                                        description
+                                                    </th>
+                                                    
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody *ngFor="let categorie of categories">
+                                                <tr>
+                                                    
+                                                    <td>
+                                                        {{categorie.idCat}}
+                                                    </td>
+                                                    <td>
+                                                        {{categorie.nomCat}} 
+                                                    </td>
+                                                    <td>
+                                                        {{categorie.descriptionCat}} 
+                                                    </td>
+                                                    <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerCategorie(categorie)">Supprimer</a></td>
+                                                    <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateCategorie',categorie.idCat]">Modifier</a></td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+
+    <!-- page-body-wrapper ends -->
+</div>

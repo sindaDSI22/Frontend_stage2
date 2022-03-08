@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Gestion des Stocks</title>
+</head>
+
+<body>
+  <div class="horizontal-menu">
+
+    <nav class="bottom-navbar">
+      <div class="container">
+        <ul class="nav page-navigation">
+
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo" href="/menu"><img src="assets/menu/images/softic.png" alt="EPPM" /></a>
+          </div>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/menu">
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">
+              <i class="mdi mdi-cube-outline menu-icon"></i>
+              <span class="menu-title">Articles</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="submenu">
+              <ul>
+                <li class="nav-item"><a class="nav-link" href="/list-article">Lister</a></li>
+                <li class="nav-item"><a class="nav-link" href="/add-article">Ajouter</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="mdi mdi-apps menu-icon"></i>
+              <span class="menu-title">Categories</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="submenu">
+              <ul>
+                <li class="nav-item"><a class="nav-link" href="/list-categorie">Lister</a></li>
+                <li class="nav-item"><a class="nav-link" href="/add-categorie">Ajouter</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+             
+            <a href="#" class="nav-link">
+              <i class="mdi mdi-login-variant menu-icon"></i>
+              <span class="menu-title">Connexion</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="submenu">
+              <ul>
+                <li class="nav-item"><a *ngIf="!authService.isloggedIn" class="nav-link" routerLink = "login">login</a></li>
+                <li class="nav-item"><a *ngIf="authService.isloggedIn" class="nav-link" (click) = "onLogout()">logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+            <br>
+             <a class="nav-link">{{authService.loggedUser}}</a>
+          </li>
+        
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+</body>
+
+</html>
+<router-outlet></router-outlet>

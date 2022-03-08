@@ -1,0 +1,36 @@
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth lock-full-bg">
+            <div class="row w-100">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-transparent text-left p-5 text-center">
+                        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                            <a class="navbar-brand brand-logo" href="/menu"><img src="assets/menu/images/avatar.png" alt="EPPM" /></a>
+                          </div>
+                       
+                        <div class="alert alert-danger" *ngIf="erreur==1">
+                            <strong>login ou mot de passe erronés..</strong>
+                            </div>                            
+                        <form class="pt-5">
+                            <div class="form-group">
+                                <input type="email" class="form-control text-center" [(ngModel)]="user.username" name="username"
+                                    placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control text-center" [(ngModel)]="user.password" name="password"
+                                    placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <div class="mt-5">
+                                    <a type="button" class="btn btn-block btn-success btn-lg font-weight-medium" (click)="onLoggedin()" >Login</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
